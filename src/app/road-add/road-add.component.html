@@ -1,0 +1,37 @@
+<h3>Add Route</h3>
+<div class="col-md-6 offset-md-3"></div>
+<div [hidden]="submitted" style="width: 400px;">
+  <form #roadForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    
+
+    <div class="form-group">
+      <label for="name">Road From</label>
+      <input type="text" #roadFrom="ngModel" class="form-control" id="roadFrom" required [(ngModel)]="road.routeFrom" name="routeFrom">
+      <span *ngIf="roadForm.invalid && roadForm.touched" class="error">Required</span>
+    </div>
+
+    
+    <div class="form-group">
+      <label for="name">Road To</label>
+      <input type="text" class="form-control" id="roadTo" required [(ngModel)]="road.routeTo" name="routeTo">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Distance</label>
+      <input type="text" class="form-control" id="distance" required [(ngModel)]="road.distance" name="distance">
+    </div>
+
+
+ 
+
+    <button type="submit" [disabled]='!roadForm.valid' class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+ 
+
+<div [hidden]="!submitted">
+  <h4>Success!</h4>
+</div>
