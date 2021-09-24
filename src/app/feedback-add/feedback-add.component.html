@@ -1,0 +1,45 @@
+<h3>Add feedback</h3>
+
+<div [hidden]="submitted" style="width: 400px;">
+  <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <label for="name">Driver Rating</label>
+      <input type="text" #driverRating="ngModel" class="form-control" id="driverRating" required [(ngModel)]="feedback.driverRating" name="driverRating">
+      <span *ngIf="driverRating.invalid && driverRating.touched" class="error">Required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Service Rating</label>
+      <input type="text" class="form-control" id="serviceRating" required [(ngModel)]="feedback.serviceRating" name="serviceRating">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Overall rating</label>
+      <input type="text" class="form-control" id="overallRating" required [(ngModel)]="feedback.overallRating" name="overallRating">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Comment</label>
+      <input type="text" class="form-control" id="comments" required [(ngModel)]="feedback.comments" name="comments">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Date</label>
+      <input type="date" class="form-control" id="feedbackdate" required [(ngModel)]="feedback.feedbackdate" name="feedbackdate">
+    </div>
+
+
+ 
+
+    <button type="submit" [disabled]='!feedbackForm.valid' class="btn btn-success">Submit</button>
+
+  </form>
+</div>
+
+ 
+
+<div [hidden]="!submitted">
+  <h4>Success!</h4>
+</div>
