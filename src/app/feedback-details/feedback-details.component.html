@@ -1,0 +1,31 @@
+<h2>Feedback Details</h2> 
+<hr/>
+<div *ngIf="feedback">
+
+  <div>
+    <label><b>feedback ID: </b></label> {{feedback.feedbackId}}
+  </div>
+
+  <div>
+    <label><b>driverRating: </b></label> {{feedback.driverRating}}
+  </div>
+
+  <div>
+    <label><b>serviceRating: </b></label> {{feedback.serviceRating}}
+  </div>
+
+  <div>
+    <label><b>overallRating: </b></label> {{feedback.overallRating}}
+  </div>
+
+  <div>
+    <label><b>comments: </b></label> {{feedback.comments}}
+  </div>
+  
+  <div>
+    <label><b>feedbackDate: </b></label> {{feedback.feedbackdate}}
+  </div>
+  
+ 
+    <p></p>
+    <button (click)="list()" class="btn btn-primary">Back to Feedback List</button>
