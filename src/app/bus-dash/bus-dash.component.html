@@ -1,0 +1,70 @@
+<app-user-dashboard></app-user-dashboard>
+<div class="panel panel-primary">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="panel-heading">
+      <h2>Bus List</h2>
+    </div>
+   
+    
+    
+<!-- 
+    <div class="container">
+      <div class="row">
+      <div id="custom-search-input">
+      <div class="input-group col-md-12" style="text-align: center">
+          <input type="text" class="search-query form-control" placeholder="Search Bus type"  name="type" [(ngModel)]="type"/>
+          <span class="input-group-btn">
+          <button class="btn btn-danger" type="button" (click)="viewBusByType()">
+          <span class="fa fa-search"></span>
+          </button>
+          </span>
+          </div>
+          </div>
+      </div>
+  </div>
+ -->
+
+
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+  
+          <tr>
+            <th>Bus ID</th>
+            <th>Bus Name</th>
+            <th>Bus Type</th>
+            <th>Driver Name</th>
+            <th>Seats</th>
+            <th>Available Seats</th>
+            <th>Arrival Time</th>
+            <th>Departure time</th>
+         </tr>
+  
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let bus of bus | async">
+            <td>{{bus.busId}}</td>
+            <td>{{bus.busName}}</td>
+            <td>{{bus.busType}}</td>
+            <td>{{bus.driverName}}</td>
+            <td>{{bus.seats}}</td>
+            <td>{{bus.avaiableSeats}}</td>
+            <td>{{bus.arrivalTime}}</td>
+            <td>{{bus.departureTime}}</td>
+            <td>
+             
+              <a href="reservationadd">Book now</a>
+              
+
+
+             
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <br>
+    </div>
+  </div>
+  
