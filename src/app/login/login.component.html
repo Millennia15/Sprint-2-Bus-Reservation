@@ -1,0 +1,33 @@
+<body id="abc">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+<!-- 
+    <ul class="navbar-nav">
+      <li><a routerLink="/login" class="nav-link">Login</a></li>
+    </ul> -->
+
+  </nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="login-page">
+    <div class="form">
+      
+      <div>
+        <i class="fa fa-envelope icon"></i>
+        <input type="text" name="email" placeholder="email" [(ngModel)]="email">
+        <i class="fa fa-key icon"></i>
+        <input type="password" name="password" placeholder="password"[(ngModel)]="password">
+      </div>
+      <button (click)=checkLogin() class="btn btn-success">
+        Login
+      </button>
+      
+      <p class="message">Not registered? <a href="new">Create an account</a></p>
+    </div>
+    
+</div>
+<br>
+<br>
+<br>
+<br>
+</body>
+    
