@@ -1,0 +1,81 @@
+<h3>Add reservation</h3>
+
+<div [hidden]="submitted" style="width: 400px;">
+  <form #reservationForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <label for="name">Reservation Status</label>
+      <input type="text" #reservationStatus="ngModel" class="form-control" id="reservationStatus" required [(ngModel)]="reservation.reservationStatus" name="reservationStatus">
+      <span *ngIf="reservationStatus.invalid && reservationStatus.touched" class="error">Required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Reservation Type</label>
+      <input type="text" class="form-control" id="reservationType" required [(ngModel)]="reservation.reservationType" name="reservationType">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Reservation Date</label>
+        <input type="date" class="form-control" id="reservationDate" required [(ngModel)]="reservation.reservationDate" name="reservationDate">
+      </div>
+
+    <div class="form-group">
+      <label for="name">Reservation Time</label>
+      <input type="time" class="form-control" id="reservationTime" required [(ngModel)]="reservation.reservationTime" name="reservationTime">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Source</label>
+      <input type="text" class="form-control" id="source" required [(ngModel)]="reservation.source" name="source">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Destination</label>
+        <input type="text" class="form-control" id="destination" required [(ngModel)]="reservation.destination" name="destination">
+      </div>
+
+
+      <!-- <div class="form-group">
+        <label for="name">User Login Id</label>
+        <input type="text" class="form-control" id="userLoginId" required [(ngModel)]="reservation.user" name="userLoginId">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Bus id</label>
+        <input type="text" class="form-control" id="busId" required [(ngModel)]="bus.reservation" name="busId">
+      </div> -->
+      <div class="form-group">
+        <label for="name">User</label>
+        <select class="form-control" id="user" required [(ngModel)]="reservation.user" name="user">
+        <option [ngValue]="null" disabled>Select userLoginId</option>
+        <option *ngFor="let user of user| async" [ngValue]="user">
+        {{user.userLoginId}}
+        </option>
+       </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Bus Id</label>
+      <select class="form-control" id="bus" required [(ngModel)]="reservation.bus" name="bus">
+      <option [ngValue]="null" disabled>Select busId</option>
+      <option *ngFor="let bus of bus| async" [ngValue]="bus">
+      {{bus.busId}}
+      </option>
+     </select>
+  </div>
+
+    
+
+
+ 
+
+  <button type="submit" [disabled]='!reservationForm.valid' class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+ 
+
+<div [hidden]="!submitted">
+  <h4>Success!</h4>
+</div>
