@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h3>Add bus</h3>
+
+<div [hidden]="submitted" style="width: 400px;">
+  <form #busForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <i class="fa fa-envelope icon"></i>
+      <label for="name">Bus Name</label>
+      <input type="text" #busName="ngModel"class="form-control" id="busName" required [(ngModel)]="bus.busName" name="busName">
+      <span *ngIf="busName.invalid && busName.touched" class="error">Required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Bus Type</label>
+      <input type="text" class="form-control" id="busType" required [(ngModel)]="bus.busType" name="busType">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Driver Name</label>
+      <input type="text" class="form-control" id="driverName" required [(ngModel)]="bus.driverName" name="driverName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Seats</label>
+      <input type="text" class="form-control" id="seats" required [(ngModel)]="bus.seats" name="seats">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Available seats</label>
+      <input type="text" class="form-control" id="avaiableSeats" required [(ngModel)]="bus.avaiableSeats" name="avaiableSeats">
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Arrival time</label>
+      <input type="time" class="form-control" id="arrivalTime" required [(ngModel)]="bus.arrivalTime" name="arrivalTime">
+    </div>
+
+ 
+    <div class="form-group">
+        <label for="name">Departure time</label>
+        <input type="time" class="form-control" id="departureTime" required [(ngModel)]="bus.departureTime" name="departureTime">
+      </div>
+
+    
+      <button type="submit" [disabled]='!busForm.valid' class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+ 
+
+<div [hidden]="!submitted">
+  <h4>Success!</h4>
+</div>
